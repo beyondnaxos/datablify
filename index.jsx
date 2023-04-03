@@ -112,6 +112,7 @@ export const Datablify = ({ data, categories }) => {
             <div>
               <input
                 onKeyUp={(e) => searchInput(e)}
+                onPaste={(e) => searchInput(e)}
                 type="text"
                 className={styles.searchInput}
                 placeholder="Search..."
