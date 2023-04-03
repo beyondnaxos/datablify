@@ -1,0 +1,131 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.tableCompContainer {
+    max-width: 80vw;
+    min-width: 770px;
+    padding: 20px;
+    /* background-color: aqua; */
+}
+
+
+.tableContainer {
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+}
+
+.viewAndSearch {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.limitViewContainer {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.tableRow:hover {
+    background-color: #5e5e68;
+    color: white;
+}
+
+.title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    background-color: #161618;
+    color: white;
+    border: 1px solid black;
+    padding: 3px 7px;
+    text-align: start;
+}
+
+.rowData {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    padding: 3px 8px;
+    cursor: pointer;
+    /* beautiful cubic bezier */
+    /* transition: all 0.15s cubic-bezier(0.25, 0.8, 0.25, 1); */
+}
+
+.rowData:hover {
+    background-color: #161618;
+    color: white;
+    /* transition: all 0.05s cubic-bezier(0.25, 0.8, 0.25, 1); */
+}
+
+
+.searchInput {
+    width: 200px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 0 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+}
+
+.spaninfo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+}
+
+.errorContainer  {
+    border: 2px dashed rgb(22, 22, 22);
+    width: fit-content;
+    padding: 10px;
+}
+
+.errorTitle {
+    font-family: 'Poppins', sans-serif;
+    font-size: 32px;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+}
+
+.errorText {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+}
+
+.errorCompare {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+}
+
+.counter {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    color: rgb(250, 73, 73);
+    font-weight: 600;
+}
+
+.myTooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.show {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+.notFound {
+    display: none;
+}
