@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 import styles from './Datablify.module.css'
 
@@ -131,9 +131,9 @@ export const Datablify = ({ data, categories }) => {
                   {getRow(row, index)}
                 </tr>
               ))}
-              <td class="dataTables_empty" style={{ display: 'none' }}>
-                No matching records found
-              </td>
+              <tr className="dataTables_empty" style={{ display: 'none' }}>
+                <td>No matching records found</td>
+              </tr>
             </tbody>
           </table>
         </>
@@ -142,4 +142,5 @@ export const Datablify = ({ data, categories }) => {
       )}
     </section>
   )
+  
 }

@@ -8,11 +8,11 @@ Datablifly is a React component that renders a table with data and provides func
 To install Datablify, you can use either npm or yarn:
 
 ```bash
-npm install databliflyer
+npm install datablify
 ```
 
 ```bash
-yarn add databliflyer
+yarn add datablify
 ```
 
 ## Usage
@@ -21,7 +21,7 @@ To use Datablify in your React project, you need to import it and pass it the re
 (you can use as many data items as you want in condition that they have the same lenght as the categories prop )
 
 ```javascript
-import { Datablify } from 'databliflyer'
+import { Datablify } from 'datablify'
 
 const MyComponent = () => {
   const data = [
