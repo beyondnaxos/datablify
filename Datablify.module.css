@@ -16,6 +16,9 @@
 .tableContainer {
     background-color: rgb(255, 255, 255);
     width: 100%;
+    min-width: 900px;
+    border-spacing:0; /* Removes the cell spacing via CSS */
+    border-collapse: collapse; 
 }
 
 .viewAndSearch {

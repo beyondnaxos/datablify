@@ -1,12 +1,16 @@
 import React from 'react'
 
-
 import styles from './Datablify.module.css'
 
-export const Datablify = ({ data, categories, headColor, titleHeadColor }) => {
+export const Datablify = (props) => {
+
+  const data = props.data
+  const categories = props.categories
+  let headColor = props.headColor? props.headColor : 'black'
+  let titleHeadColor =  props.titleHeadColor? props.titleHeadColor : 'white'
+
   const [customHeadColor, setCustomHeadColor] = React.useState('#020202')
-  const [customTitleHeadColor, setCustomTitleHeadColor] =
-    React.useState('#020202')
+  const [customTitleHeadColor, setCustomTitleHeadColor] = React.useState('#020202')
 
   const isValidData = categories.length === Object.keys(data[0]).length
 
