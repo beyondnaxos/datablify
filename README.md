@@ -1,4 +1,3 @@
-
 # Datablify
 
 Datablifly is a React component that renders a table with data and provides functionalities such as search and row limit options. It is styled with CSS modules.
@@ -32,7 +31,14 @@ const MyComponent = () => {
 
   const categories = ['ID', 'Name', 'Age']
 
-  return <Datablify data={data} categories={categories} />
+  return (
+    <Datablify
+      data={data}
+      categories={categories}
+      headColor={'black'}
+      titleHeadColor={'white'}
+    />
+  )
 }
 ```
 
@@ -42,6 +48,8 @@ Datablify accepts the following props:
 
 - `data`: An array of objects that contains the data to be displayed in the table. Each object should have the same keys as the categories prop.
 - `categories`: An array of strings that contains the categories for the table. Each string should correspond to a key in the objects of the data prop.
+- `headColor`: A string that contains the color of the table header. 
+- `titleHeadColor`: A string that contains the color of the table header title. 
 
 ## Functionalities
 
@@ -50,6 +58,9 @@ Datablify provides the following functionalities:
 - Search: A search input is provided for filtering the table rows by keyword. The search is case-insensitive.
 - Row limit: A dropdown is provided for limiting the number of rows displayed in the table.
 - Copy to clipboard: Clicking on a cell in the table will copy its text to the clipboard and display a "Copied" message. The message will disappear after 750 milliseconds.
+- Responsive: The table is responsive and will collapse into a vertical list on smaller screens.
+- headerColor: The color custom of the table header.
+- titleHeadColor: The color custom of the table header title.
 
 ## Styling
 
@@ -70,4 +81,3 @@ Datablify is styled with CSS modules, which means that you can override its styl
 ## License
 
 MIT © [datablify]
-

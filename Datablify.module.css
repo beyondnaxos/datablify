@@ -5,8 +5,9 @@
 }
 
 .tableCompContainer {
-    max-width: 80vw;
-    min-width: 770px;
+    width: 100%;
+    /* max-width: 80vw;
+    min-width: 770px; */
     padding: 20px;
     /* background-color: aqua; */
 }
@@ -129,3 +130,12 @@
 .notFound {
     display: none;
 }
+
+
+@media screen and (max-width: 550px) {
+    .viewAndSearch {
+      flex-direction: column;
+      align-items: flex-start;
+      row-gap: 10px;
+    }
+  }

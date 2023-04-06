@@ -1,9 +1,19 @@
 import React from 'react'
 
+
 import styles from './Datablify.module.css'
 
-export const Datablify = ({ data, categories }) => {
+export const Datablify = ({ data, categories, headColor, titleHeadColor }) => {
+  const [customHeadColor, setCustomHeadColor] = React.useState('#020202')
+  const [customTitleHeadColor, setCustomTitleHeadColor] =
+    React.useState('#020202')
+
   const isValidData = categories.length === Object.keys(data[0]).length
+
+  React.useEffect(() => {
+    setCustomHeadColor(headColor)
+    setCustomTitleHeadColor(titleHeadColor)
+  }, [headColor, titleHeadColor])
 
   let timeOutId = null
 
@@ -36,7 +46,14 @@ export const Datablify = ({ data, categories }) => {
 
   const getCategories = (categories) => {
     return categories.map((category, index) => (
-      <th key={index} className={styles.title}>
+      <th
+        key={index}
+        className={styles.title}
+        style={{
+          backgroundColor: customHeadColor,
+          color: customTitleHeadColor,
+        }}
+      >
         {category}
       </th>
     ))
@@ -100,7 +117,10 @@ export const Datablify = ({ data, categories }) => {
   }
 
   return (
-    <section className={styles.tableCompContainer}>
+    <section
+      className={styles.tableCompContainer}
+      style={{ overflowX: 'auto' }}
+    >
       {isValidData ? (
         <>
           <div className={styles.viewAndSearch}>
@@ -142,5 +162,4 @@ export const Datablify = ({ data, categories }) => {
       )}
     </section>
   )
-  
 }
