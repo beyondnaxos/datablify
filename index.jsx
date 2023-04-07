@@ -2,25 +2,27 @@ import React from 'react'
 import styles from './Datablify.module.css'
 
 export const Datablify = (props) => {
-  const data = props.data
-  const categories = props.categories
-  let headColor = props.headColor? props.headColor : 'black'
-  let titleHeadColor = props.titleHeadColor?  props.titleHeadColor : 'white'
-
 
   const [customHeadColor, setCustomHeadColor] = React.useState('#020202')
   const [customTitleHeadColor, setCustomTitleHeadColor] = React.useState('#020202')
   const [sortColumn, setSortColumn] = React.useState(null)
   const [sortOrder, setSortOrder] = React.useState(null)
+  const [sortingState, setSortingState] = React.useState({
+    activeCategory: '',
+    direction: ''
+  })
+
+  const data = props.data
+  const categories = props.categories
+  const isValidData = categories.length === Object.keys(data[0]).length
+  let headColor = props.headColor? props.headColor : 'black'
+  let titleHeadColor = props.titleHeadColor?  props.titleHeadColor : 'white'
+  let timeOutId = null
 
   React.useEffect(() => {
     setCustomHeadColor(headColor)
     setCustomTitleHeadColor(titleHeadColor)
   }, [headColor, titleHeadColor])
-
-  const isValidData = categories.length === Object.keys(data[0]).length
-
-  let timeOutId = null
 
   const copyToClipboard = (e) => {
     if (timeOutId === null) {
@@ -48,13 +50,6 @@ export const Datablify = (props) => {
       }
     })
   }
-
-  let white = '#020202'
-
-  const [sortingState, setSortingState] = React.useState({
-    activeCategory: '',
-    direction: ''
-  })
 
   const getCategories = (categories) => {
     return categories.map((category, index) => (
@@ -116,8 +111,6 @@ export const Datablify = (props) => {
       </div>
     )
   }
-
-  
 
   const handleSort = (index) => {
     if (sortColumn === index) {
