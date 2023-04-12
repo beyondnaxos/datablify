@@ -140,7 +140,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+    /* margin-top: 20px; */
 }
 
 .paginationButton:hover {
@@ -164,11 +164,16 @@
     align-items: center;
     margin: 0 5px;
 }
-
 @media screen and (max-width: 550px) {
     .viewAndSearch {
       flex-direction: column;
       align-items: flex-start;
       row-gap: 10px;
+      width: 100%;
+      
     }
+    
+    .viewAndSearch :nth-child(1) { order: 1; }
+    .viewAndSearch :nth-child(2) { order: 3; }                                    
+    .viewAndSearch :nth-child(3) { order: 2; }
   }
