@@ -1,23 +1,65 @@
 import React from 'react'
 import styles from './Datablify.module.css'
 
-export const Datablify = (props) => {
+const Pagination = ({ nPages, currentPage, setCurrentPage }) => {
+  const pageNumbers = [...Array(nPages + 1).keys()].slice(1)
 
+  const nextPage = () => {
+    if (currentPage !== nPages) console.log(currentPage)
+    setCurrentPage(currentPage + 1)
+  }
+
+  const prevPage = () => {
+    if (currentPage !== 1) console.log(currentPage)
+    setCurrentPage(currentPage - 1)
+  }
+
+  return (
+    <div className={styles.pagination}>
+      <button className={styles.paginationButton} onClick={prevPage}>
+        <span className={styles.paginationButtonIcon}>{'<'}</span>
+      </button>
+      {pageNumbers.map((number) => (
+        <button
+          key={number}
+          className={styles.paginationButton}
+          onClick={() => setCurrentPage(number)}
+        >
+          {number}
+        </button>
+      ))}
+      <button className={styles.paginationButton} onClick={nextPage}>
+        <span className={styles.paginationButtonIcon}>{'>'}</span>
+      </button>
+    </div>
+  )
+}
+
+export const Datablify = (props) => {
   const [customHeadColor, setCustomHeadColor] = React.useState('#020202')
-  const [customTitleHeadColor, setCustomTitleHeadColor] = React.useState('#020202')
+  const [customTitleHeadColor, setCustomTitleHeadColor] =
+    React.useState('#020202')
   const [sortColumn, setSortColumn] = React.useState(null)
   const [sortOrder, setSortOrder] = React.useState(null)
   const [sortingState, setSortingState] = React.useState({
     activeCategory: '',
-    direction: ''
+    direction: '',
   })
 
+  const [currentPage, setCurrentPage] = React.useState(1)
+  const [recordsPerPage, setRecordsPerPage] = React.useState(10)
+  
   const data = props.data
   const categories = props.categories
   const isValidData = categories.length === Object.keys(data[0]).length
-  let headColor = props.headColor? props.headColor : 'black'
-  let titleHeadColor = props.titleHeadColor?  props.titleHeadColor : 'white'
+  let headColor = props.headColor ? props.headColor : 'black'
+  let titleHeadColor = props.titleHeadColor ? props.titleHeadColor : 'white'
   let timeOutId = null
+  
+  const indexOfLastRecord = currentPage * recordsPerPage
+  const indexOfFirstRecord = indexOfLastRecord - recordsPerPage
+  const currentRecords = data.slice(indexOfFirstRecord, indexOfLastRecord)
+  const nPages = Math.ceil(data.length / recordsPerPage)
 
   React.useEffect(() => {
     setCustomHeadColor(headColor)
@@ -40,6 +82,7 @@ export const Datablify = (props) => {
   const limitRows = (e) => {
     const limit = Number(e.target.value)
     const myrows = document.querySelectorAll('.tableRowLimit')
+    setRecordsPerPage(limit)
     myrows.forEach((row, index) => {
       if (index >= limit) {
         console.log('change')
@@ -56,7 +99,7 @@ export const Datablify = (props) => {
       <th
         key={index}
         className={styles.title}
-        style={{ 
+        style={{
           backgroundColor: customHeadColor,
           color: customTitleHeadColor,
         }}
@@ -64,12 +107,12 @@ export const Datablify = (props) => {
           if (sortingState.activeCategory === category) {
             setSortingState({
               ...sortingState,
-              direction: sortingState.direction === 'asc' ? 'desc' : 'asc'
+              direction: sortingState.direction === 'asc' ? 'desc' : 'asc',
             })
           } else {
             setSortingState({
               activeCategory: category,
-              direction: 'asc'
+              direction: 'asc',
             })
           }
           handleSort(index)
@@ -87,7 +130,7 @@ export const Datablify = (props) => {
       <td
         key={index + Math.random()}
         className={styles.rowData}
-        style={{ textAlign: 'start' }} 
+        style={{ textAlign: 'start' }}
         onClick={(e) => copyToClipboard(e)}
       >
         {value}
@@ -208,7 +251,8 @@ export const Datablify = (props) => {
               </tr>
             </thead>
             <tbody>
-              {sortedData?.map((row, index) => (
+              {/* currentRecords ou sortedData */}
+              {currentRecords?.map((row, index) => (
                 <tr className={`${styles.tableRow} tableRowLimit`} key={index}>
                   {getRow(row, index)}
                 </tr>
@@ -222,6 +266,11 @@ export const Datablify = (props) => {
       ) : (
         getError(data, categories)
       )}
+      <Pagination
+        nPages={nPages}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+      />
     </section>
   )
 }

@@ -63,7 +63,10 @@ Datablify provides the following functionalities:
 - titleHeadColor: The color custom of the table header title.
 
 Update 1.2 : 
-- {new} Sort by category: Clicking on a category will sort the table by that category in ascending or descending order.
+- Sort by category: Clicking on a category will sort the table by that category in ascending or descending order.
+
+Update 1.3 :
+- {new} Pagination: The table will be paginated according to the row limit selected. default row limit is 10.
 
 ## Styling
 
