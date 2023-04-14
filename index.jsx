@@ -95,6 +95,7 @@ export const Datablify = (props) => {
   let timeOutId = null
 
   const nPages = Math.ceil(displayData.length / recordsPerPage)
+  const [sortTrigger, setSortTrigger] = React.useState(true);
 
   React.useEffect(() => {
     setCustomHeadColor(headColor)
@@ -109,6 +110,7 @@ export const Datablify = (props) => {
     })
     setDisplayData(filteredData)
     setCurrentPage(1)
+    setSortTrigger((prev) => !prev);
   }, [searchTerm])
 
   React.useEffect(() => {
@@ -139,7 +141,7 @@ export const Datablify = (props) => {
     }
     setDisplayData(sortedData)
     // setCurrentPage(1)
-  }, [ displayData, sortColumn, sortOrder])
+  }, [ sortTrigger, sortColumn, sortOrder])
 
 
   const copyToClipboard = (e) => {
@@ -219,35 +221,6 @@ export const Datablify = (props) => {
       setSortOrder("asc")
     }
   }
-
-  // const sortedData = React.useMemo(() => {
-  //   if (sortColumn !== null && sortOrder !== null) {
-  //     const isAsc = sortOrder === "asc"
-  //     return displayData.sort((a, b) => {
-  //       const valueA = a[Object.keys(a)[sortColumn]]
-  //       const valueB = b[Object.keys(b)[sortColumn]]
-  //       if (isAsc) {
-  //         if (valueA < valueB) {
-  //           return -1
-  //         } else if (valueA > valueB) {
-  //           return 1
-  //         } else {
-  //           return 0
-  //         }
-  //       } else {
-  //         if (valueA > valueB) {
-  //           return -1
-  //         } else if (valueA < valueB) {
-  //           return 1
-  //         } else {
-  //           return 0
-  //         }
-  //       }
-  //     })
-  //   } else {
-  //     return data
-  //   }
-  // }, [data, sortColumn, sortOrder])
 
   const getSelect = () => {
     return (

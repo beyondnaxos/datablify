@@ -1,8 +1,13 @@
 {
   "name": "datablify",
-  "version": "1.4.0",
+  "version": "1.5.1",
   "description": "[FIX UPDATE]A Simple Table Generator for React",
   "main": "index.jsx",
+  "readme": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/beyondnaxos/datablify"
+  },
   "scripts": {
     "build": "rollup -c",
     "prepublishOnly": "npm run build"
