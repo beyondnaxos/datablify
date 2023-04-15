@@ -1,7 +1,7 @@
 {
   "name": "datablify",
-  "version": "1.5.1",
-  "description": "[FIX UPDATE]A Simple Table Generator for React",
+  "version": "1.5.3",
+  "description": "[FIX CSS] A Simple Table Generator for React",
   "main": "index.jsx",
   "readme": "README.md",
   "repository": {

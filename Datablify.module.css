@@ -8,7 +8,7 @@
     width: 100%;
     /* max-width: 80vw;
     min-width: 770px; */
-    padding: 20px;
+    /* padding: 20px; */
     /* background-color: aqua; */
 }
 
@@ -176,4 +176,9 @@
     .viewAndSearch :nth-child(1) { order: 1; }
     .viewAndSearch :nth-child(2) { order: 3; }                                    
     .viewAndSearch :nth-child(3) { order: 2; }
+
+
+    .pagination {
+        justify-content: flex-start;
+       }
   }
