@@ -19,6 +19,8 @@ yarn add datablify
 To use Datablify in your React project, you need to import it and pass it the required props:
 (you can use as many data items as you want in condition that they have the same lenght as the categories prop )
 
+[IMPORTANT ! : the categories prop must be in the same order as the data items.]
+
 ```javascript
 import { Datablify } from 'datablify'
 
@@ -73,6 +75,9 @@ Update 1.4 :
 
 Update 1.5 : 
 - Fixed Infinite loop due to useEffect dependencies.
+
+Update 1.6 :
+- Modified the pagination to be more efficient and to work with the search functionality.
 
 ## Styling
 
