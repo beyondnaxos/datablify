@@ -174,10 +174,7 @@ export const Datablify = (props) => {
       const recordValuesString = recordValues.join(" ")
       return recordValuesString.toLowerCase().includes(searchTerm)
     })
-    // if filtered data is emty , set displayData : message "no data found"
     filteredData.length === 0 ? setDisplayData([{ "No data found": "no data found" }]) : setDisplayData(filteredData)
-
-    // setDisplayData(filteredData)
     setCurrentPage(1)
     setSortTrigger((prev) => !prev)
   }, [searchTerm])
