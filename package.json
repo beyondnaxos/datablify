@@ -1,6 +1,6 @@
 {
   "name": "datablify",
-  "version": "1.7.1",
+  "version": "1.7.3",
   "description": "[PAGINATION UPDATE] A Simple Table Generator for React",
   "main": "index.jsx",
   "readme": "README.md",

@@ -154,7 +154,7 @@
     background-color: #201f1f;
     Color: #fff;
     font-family: 'Poppins', sans-serif;
-    width: 30px;
+    min-width: 30px;
     height: 30px;
     border: none;
     border-radius: 3px;
